@@ -1,0 +1,6 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<connectionStrings xmlns:xdt="http://schemas.microsoft.com/XML-Document-Transform">
+
+  <add xdt:Transform="InsertIfMissing" xdt:Locator="Match(name)" name="appinsights.instrumentationkey" connectionString="__ApplicationInsights_InstrumentationKey__"/>
+
+</connectionStrings>

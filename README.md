@@ -19,7 +19,7 @@ Disable the telemetry local for better performance by adding this entry to your 
 <add key="AppInsights:enabled" value="false" />
 ```
 
-Added role configuration so its better to distinquish calls to CM or CD by 2 configs:
+Added role specific configuration so it is better to distinquish calls to CM or CD by 2 configs:
 
 - zSitecore.Cloud.ApplicationInsights.CD.config
 - zSitecore.Cloud.ApplicationInsights.CM.config

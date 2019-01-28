@@ -1,0 +1,68 @@
+﻿<?xml version="1.0"?>
+<configuration xmlns:xdt="http://schemas.microsoft.com/XML-Document-Transform">
+ 
+  <runtime>
+    <assemblyBinding xmlns="urn:schemas-microsoft-com:asm.v1">
+
+      <dependentAssembly xdt:Transform="InsertIfMissing" xdt:Locator="Condition(./_defaultNamespace:assemblyIdentity/@name='System.Diagnostics.DiagnosticSource')">
+        <assemblyIdentity name="System.Diagnostics.DiagnosticSource" publicKeyToken="cc7b13ffcd2ddd51" culture="neutral" />
+        <bindingRedirect oldVersion="0.0.0.0-4.0.3.0" newVersion="4.0.3.0" />
+      </dependentAssembly>    
+      <dependentAssembly xdt:Transform="Replace" xdt:Locator="Condition(./_defaultNamespace:assemblyIdentity/@name='System.Diagnostics.DiagnosticSource')">
+        <assemblyIdentity name="System.Diagnostics.DiagnosticSource" publicKeyToken="cc7b13ffcd2ddd51" culture="neutral" />
+        <bindingRedirect oldVersion="0.0.0.0-4.0.3.0" newVersion="4.0.3.0" />
+      </dependentAssembly>
+
+
+      <dependentAssembly xdt:Transform="InsertIfMissing" xdt:Locator="Condition(./_defaultNamespace:assemblyIdentity/@name='Microsoft.ApplicationInsights')">
+        <assemblyIdentity name="Microsoft.ApplicationInsights" publicKeyToken="31bf3856ad364e35" culture="neutral" />
+        <bindingRedirect oldVersion="0.0.0.0-2.8.1.0" newVersion="2.8.1.0" />
+      </dependentAssembly>
+
+
+      <dependentAssembly xdt:Transform="Replace" xdt:Locator="Condition(./_defaultNamespace:assemblyIdentity/@name='Microsoft.ApplicationInsights')">
+        <assemblyIdentity name="Microsoft.ApplicationInsights" publicKeyToken="31bf3856ad364e35" culture="neutral" />
+        <bindingRedirect oldVersion="0.0.0.0-2.8.1.0" newVersion="2.8.1.0" />
+      </dependentAssembly>
+      
+    </assemblyBinding>
+  </runtime>
+
+
+  <system.webServer>
+    <modules>
+      <add xdt:Transform="InsertIfMissing" xdt:Locator="Match(name)" name="TelemetryCorrelationHttpModule" type="Microsoft.AspNet.TelemetryCorrelation.TelemetryCorrelationHttpModule, Microsoft.AspNet.TelemetryCorrelation" />
+      <add xdt:Transform="Replace" xdt:Locator="Match(name)" name="TelemetryCorrelationHttpModule" type="Microsoft.AspNet.TelemetryCorrelation.TelemetryCorrelationHttpModule, Microsoft.AspNet.TelemetryCorrelation" />
+
+      <add xdt:Transform="InsertIfMissing" xdt:Locator="Match(name)" name="ApplicationInsightsWebTracking" type="Microsoft.ApplicationInsights.Web.ApplicationInsightsHttpModule, Microsoft.AI.Web" />
+      <add xdt:Transform="Replace" xdt:Locator="Match(name)" name="ApplicationInsightsWebTracking" type="Microsoft.ApplicationInsights.Web.ApplicationInsightsHttpModule, Microsoft.AI.Web" />
+    </modules>
+  </system.webServer>
+  
+  <system.web>
+    <httpModules xdt:Transform="InsertIfMissing">
+      <add xdt:Locator="Match(name)"  name="ApplicationInsightsWebTracking" type="Microsoft.ApplicationInsights.Web.ApplicationInsightsHttpModule, Microsoft.AI.Web" />
+    </httpModules>
+    <httpModules>
+      <add xdt:Transform="InsertIfMissing" xdt:Locator="Match(name)"  name="ApplicationInsightsWebTracking" type="Microsoft.ApplicationInsights.Web.ApplicationInsightsHttpModule, Microsoft.AI.Web" />
+      <add xdt:Transform="Replace" xdt:Locator="Match(name)"  name="ApplicationInsightsWebTracking" type="Microsoft.ApplicationInsights.Web.ApplicationInsightsHttpModule, Microsoft.AI.Web" />
+    </httpModules>
+  </system.web>
+
+  <system.diagnostics xdt:Transform="InsertIfMissing">
+    <trace autoflush="true" indentsize="0">
+      <listeners>
+        <add xdt:Locator="Match(name)"  name="AppInsightsListener" type="Microsoft.ApplicationInsights.TraceListener.ApplicationInsightsTraceListener, Microsoft.ApplicationInsights.TraceListener"/>
+      </listeners>
+    </trace>
+  </system.diagnostics>
+  <system.diagnostics>
+    <trace autoflush="true" indentsize="0">
+      <listeners>
+        <add xdt:Transform="InsertIfMissing" xdt:Locator="Match(name)"  name="AppInsightsListener" type="Microsoft.ApplicationInsights.TraceListener.ApplicationInsightsTraceListener, Microsoft.ApplicationInsights.TraceListener"/>
+        <add xdt:Transform="Replace" xdt:Locator="Match(name)"  name="AppInsightsListener" type="Microsoft.ApplicationInsights.TraceListener.ApplicationInsightsTraceListener, Microsoft.ApplicationInsights.TraceListener"/>
+      </listeners>
+    </trace>
+  </system.diagnostics>
+
+</configuration>
